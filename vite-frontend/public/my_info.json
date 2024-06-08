@@ -1,0 +1,163 @@
+{
+  "name": "Ike Maldonado",
+  "email": "maldonadoike@gmail.com",
+  "linkedin": "linkedin.com/in/ike-maldonado",
+  "phone": "(415) 760-7438",
+  "location": "Bay Area",
+  "summary": "Experienced IT professional with a background in software engineering, technical support, and project management. Proven leadership capabilities in managing teams and driving system development initiatives. Aiming to leverage technical skills to transition into a junior software developer role, taking the next step towards a professional coding career.",
+  "technicalSkills": {
+    "backend": {
+      "Python": 90,
+      "JavaScript": 85,
+      "TypeScript": 80,
+      "Java": 75,
+      "SQL": 85,
+      "Vue": 80,
+      "React": 85,
+      "Node.js": 90
+    },
+    "frontend": {
+      "React": 85,
+      "Vue": 80,
+      "HTML": 90,
+      "CSS": 85,
+      "REST APIs": 80
+    },
+    "toolsFrameworks": {
+      "Git": 90,
+      "Docker": 85,
+      "Pytest": 80,
+      "Django": 85,
+      "Vite": 80,
+      "Next.js": 85,
+      "Tailwindcss": 80
+    },
+    "cloudDevOps": {
+      "AWS (Lightsail, EC2, Route53)": 85,
+      "Google Cloud": 80,
+      "Linux (Ubuntu, Fedora)": 85
+    }
+  },
+  "experience": [
+    {
+      "title": "IT Manager",
+      "company": "TUTORWORKS",
+      "startDate": "2024-01-01",
+      "endDate": "Present",
+      "responsibilities": [
+        "Oversee 3 technical assistants, fostering their growth and driving operational efficiency.",
+        "Direct QA team, successfully optimizing team size using Jakob Nielson's formula, reducing bug resolution time, and achieving an average 15.91% bug detection rate with a team of 6.",
+        "Develop Python and JavaScript applications to automate day-to-day operational tasks.",
+        "Collaborate within an Agile development team during weekly sprint meetings, employing ClickUp for effective task tracking and staying within project deadlines."
+      ],
+      "show": true
+    },
+    {
+      "title": "Software Engineer Intern",
+      "company": "TUTORWORKS",
+      "startDate": "2022-03-01",
+      "endDate": "2023-03-01",
+      "responsibilities": [
+        "Deployed Mattermost on AWS Lightsail, resulting in annual cost savings of $23K.",
+        "Built a single sign-on application and interactive teacher monitoring dashboard, enhancing teacher login insights, simplifying and decreasing teacher classroom login time.",
+        "Managed business requirements for the development lifecycle of a teacher dashboard, collaborating with president, operations team, and call center team to ensure alignment with organizational goals."
+      ],
+      "show": true
+    },
+    {
+      "title": "Technical Assistant",
+      "company": "TUTORWORKS",
+      "startDate": "2022-12-01",
+      "endDate": "2024-01-01",
+      "responsibilities": [
+        "Provided technical support and guided operations team in diagnosing and resolving technical issues.",
+        "Negotiated and procured new and refurbished laptops, coordinating deployment and configuration."
+      ],
+      "show": true
+    },
+    {
+      "title": "Paraprofessional",
+      "company": "San Francisco Unified School District",
+      "startDate": "2019-02-01",
+      "endDate": "2022-01-01",
+      "responsibilities": [
+        ""
+      ],
+      "show": false
+    },
+    {
+      "title": "Inclusion Specialist",
+      "company": "Chinatown YMCA of San Francisco",
+      "startDate": "2020-02-01",
+      "endDate": "2020-11-01",
+      "responsibilities": [
+        ""
+      ],
+      "show": false
+    },
+    {
+      "title": "Branch Services Representative III",
+      "company": "San Francisco Federal Credit Union",
+      "startDate": "2016-03-01",
+      "endDate": "2018-08-01",
+      "responsibilities": [
+        ""
+      ],
+      "show": false
+    },
+    {
+      "title": "Housing and Credit Counselor",
+      "company": "Balance",
+      "startDate": "2015-07-01",
+      "endDate": "2016-05-01",
+      "responsibilities": [
+        ""
+      ],
+      "show": false
+    }
+  ],
+  "education": [
+    {
+      "degree": "BS Computer Science",
+      "institution": "Western Governors University",
+      "graduationYear": "Expected Graduation: August 2024"
+    },
+    {
+      "degree": "AS Liberal Arts: Math and Sciences",
+      "institution": "City College of San Francisco",
+      "graduationYear": "2019"
+    },
+    {
+      "degree": "AA Liberal Arts: Arts and Humanities",
+      "institution": "City College of San Francisco",
+      "graduationYear": "2019"
+    }
+  ],
+  "certifications": [
+    {
+      "certification": "CompTIA Project+ Certified",
+      "year": 2022
+    },
+    {
+      "certification": "ITIL 4"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Student Progress Report Generator",
+      "description": "Developed a student progress report generator application in Python that consolidates student information, assessment scores, and progress metrics into an Excel report, providing stakeholders with valuable insights into student performance and growth. The application fetches data from multiple databases and leverages the Pandas library with vectors and multi-threading for efficient data processing. The frontend user interface was developed using Vue.js and FastAPI, allowing users to specify report parameters such as date range and class ID, streamlining a previously task-intensive process into a simple operation."
+    },
+    {
+      "title": "Teacher Single Sign-On",
+      "description": "A single sign-on application for teachers to login to classrooms, built using Vite, DaisyUI + Tailwindcss, and a Supabase backend. Login functionality implemented with validation, redirecting authorized teachers to their respective Google Meet or Merithub virtual classrooms. Includes an administrative portal enabling supervisors to toggle active teacher accounts and connect virtual classroom links."
+    },
+    {
+      "title": "Discord Bug Tracker",
+      "description": "Developed a bug tracking bot for Discord using Python, hosted on an AWS Lightsail server. The bot utilizes the Discord API, prompts users, then gathers and accepts image uploads. Once a bug report is completed, the details are automatically sent to a dedicated bug folder in ClickUp via a webhook integration."
+    }
+  ],
+  "languages": [
+    "Spanish",
+    "Portuguese"
+  ]
+}

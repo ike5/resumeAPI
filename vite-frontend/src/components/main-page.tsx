@@ -27,27 +27,41 @@ import {Button} from "@/components/ui/button"
 import {Label} from "@/components/ui/label"
 import {Input} from "@/components/ui/input"
 import {Textarea} from "@/components/ui/textarea"
+import {useEffect, useState} from "react";
 
 export function MainPage() {
+    const [info, setInfo] = useState(null)
+
+    useEffect(() => {
+        fetch('/my_info.json')
+            .then(response => response.json())
+            .then(data => setInfo(data))
+            .catch(error => console.error('Error fetching JSON:', error));
+    }, []);
+
+    if (!info) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <div className="flex flex-col min-h-screen">
             <header className="bg-gray-900 text-white py-4 px-6 md:px-12">
                 <div className="container mx-auto flex justify-between items-center">
-                    <div className="text-2xl font-bold">John Doe</div>
+                    <div className="text-2xl font-bold">{info.name}</div>
                     <nav className="hidden md:flex space-x-6">
-                        <p className="hover:text-gray-400" >
+                        <p className="hover:text-gray-400">
                             About
                         </p>
-                        <p className="hover:text-gray-400" >
+                        <p className="hover:text-gray-400">
                             Experience
                         </p>
-                        <p className="hover:text-gray-400" >
+                        <p className="hover:text-gray-400">
                             Education
                         </p>
-                        <p className="hover:text-gray-400" >
+                        <p className="hover:text-gray-400">
                             Skills
                         </p>
-                        <p className="hover:text-gray-400" >
+                        <p className="hover:text-gray-400">
                             Contact
                         </p>
                     </nav>
@@ -61,22 +75,7 @@ export function MainPage() {
                     <div className="container mx-auto max-w-4xl space-y-6">
                         <h2 className="text-3xl font-bold">About Me</h2>
                         <p className="text-gray-600 dark:text-gray-400">
-                            I am a highly skilled and experienced software engineer with a passion for building
-                            innovative and
-                            user-friendly applications. With a strong background in full-stack development, I have honed
-                            my skills in
-                            a variety of programming languages and technologies, including JavaScript, React, Node.js,
-                            and database
-                            management.
-                        </p>
-                        <p className="text-gray-600 dark:text-gray-400">
-                            Throughout my career, I have worked on a wide range of projects, from small-scale web
-                            applications to
-                            large-scale enterprise-level systems. I am a problem-solver at heart, and I thrive on the
-                            challenge of
-                            tackling complex technical challenges and delivering high-quality solutions that meet the
-                            needs of my
-                            clients and users.
+                            {info.summary}
                         </p>
                     </div>
                 </section>
@@ -84,47 +83,18 @@ export function MainPage() {
                     <div className="container mx-auto max-w-4xl space-y-6">
                         <h2 className="text-3xl font-bold">Experience</h2>
                         <div className="space-y-8">
-                            <div>
-                                <h3 className="text-xl font-bold">Software Engineer</h3>
-                                <p className="text-gray-600 dark:text-gray-400">Acme Inc. | 2019 - Present</p>
-                                <ul className="list-disc pl-6 text-gray-600 dark:text-gray-400 space-y-2">
-                                    <li>
-                                        Developed and maintained complex web applications using React, Node.js, and
-                                        various other
-                                        technologies.
-                                    </li>
-                                    <li>
-                                        Collaborated with cross-functional teams to design and implement scalable and
-                                        efficient solutions.
-                                    </li>
-                                    <li>
-                                        Participated in the full software development lifecycle, including requirements
-                                        gathering, design,
-                                        implementation, testing, and deployment.
-                                    </li>
-                                    <li>Provided technical leadership and mentorship to junior developers.</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-bold">Web Developer</h3>
-                                <p className="text-gray-600 dark:text-gray-400">XYZ Corp. | 2016 - 2019</p>
-                                <ul className="list-disc pl-6 text-gray-600 dark:text-gray-400 space-y-2">
-                                    <li>Developed and maintained responsive web applications using HTML, CSS, and
-                                        JavaScript.
-                                    </li>
-                                    <li>
-                                        Collaborated with designers and product managers to translate design mockups
-                                        into functional user
-                                        interfaces.
-                                    </li>
-                                    <li>Implemented and optimized front-end performance and user experience.</li>
-                                    <li>
-                                        Participated in code reviews and pair programming sessions to ensure code
-                                        quality and best
-                                        practices.
-                                    </li>
-                                </ul>
-                            </div>
+                            {info.experience.map((exp: string, index: number) => (
+                                <div key={index}>
+                                    <h3 className="text-xl font-bold">{exp.title}</h3>
+                                    <p className="text-gray-600 dark:text-gray-400">{exp.company} | {exp.startDate} - {exp.endDate}</p>
+                                    <ul className="list-disc pl-6 text-gray-600 dark:text-gray-400 space-y-2">
+                                        {exp.show ?
+                                            exp.responsibilities.map((responsibility: string, i: number) => (
+                                                <li key={i}>{responsibility}</li>
+                                            )) : null}
+                                    </ul>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </section>
@@ -132,14 +102,13 @@ export function MainPage() {
                     <div className="container mx-auto max-w-4xl space-y-6">
                         <h2 className="text-3xl font-bold">Education</h2>
                         <div className="space-y-4">
-                            <div>
-                                <h3 className="text-xl font-bold">Bachelor of Science in Computer Science</h3>
-                                <p className="text-gray-600 dark:text-gray-400">University of Example, 2012 - 2016</p>
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-bold">High School Diploma</h3>
-                                <p className="text-gray-600 dark:text-gray-400">Example High School, 2008 - 2012</p>
-                            </div>
+                            {info.education.map((_edu: string, index: number) => (
+                                <div key={index}>
+
+                                    <h3 className="text-xl font-bold">{_edu.degree}</h3>
+                                    <p className="text-gray-600 dark:text-gray-400">{_edu.institution}, {_edu.graduationYear}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </section>
@@ -185,6 +154,8 @@ export function MainPage() {
                                     </div>
                                 </div>
                             </div>
+
+
                             <div className="bg-white dark:bg-gray-900 rounded-lg p-4 shadow">
                                 <h3 className="text-lg font-bold">Backend</h3>
                                 <div className="mt-4 space-y-2">
@@ -356,13 +327,13 @@ export function MainPage() {
                 <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
                     <div className="text-sm">© 2023 John Doe. All rights reserved.</div>
                     <div className="flex space-x-4 mt-4 md:mt-0">
-                        <p className="hover:text-gray-400" >
+                        <p className="hover:text-gray-400">
                             <GithubIcon/>
                         </p>
-                        <p className="hover:text-gray-400" >
+                        <p className="hover:text-gray-400">
                             <LinkedinIcon/>
                         </p>
-                        <p className="hover:text-gray-400" >
+                        <p className="hover:text-gray-400">
                             <TwitterIcon/>
                         </p>
                     </div>
