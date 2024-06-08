@@ -78,7 +78,7 @@ export function Endpoints() {
 
                 </div>
 
-                <h2 className="text-2xl font-bold mb-4 my-4">Fun Facts Endpoints</h2>
+                <h2 className="text-2xl font-bold mb-4 my-4">Fun Endpoints</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
 
@@ -96,13 +96,14 @@ export function Endpoints() {
                             <span className="text-gray-600 dark:text-gray-400">200 OK - application/json</span>
                         </div>
                     </div>
+
                     <div className="bg-white dark:bg-gray-700 p-4 rounded-md shadow-sm">
-                        <h3 className="text-lg font-bold mb-2">Get Books</h3>
-                        <p className="text-gray-600 dark:text-gray-400 mb-2">Fetch Ike's favorite books.</p>
+                        <h3 className="text-lg font-bold mb-2">Get Photo</h3>
+                        <p className="text-gray-600 dark:text-gray-400 mb-2">Fetch Ike's ASCII headshot.</p>
                         <div className="flex items-center mb-2">
                             <span
                                 className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium mr-2">GET</span>
-                            <span className="text-gray-600 dark:text-gray-400">/books</span>
+                            <span className="text-gray-600 dark:text-gray-400">/photo</span>
                         </div>
                         <div className="flex items-center">
                             <span
@@ -111,12 +112,12 @@ export function Endpoints() {
                         </div>
                     </div>
                     <div className="bg-white dark:bg-gray-700 p-4 rounded-md shadow-sm">
-                        <h3 className="text-lg font-bold mb-2">Get Books</h3>
-                        <p className="text-gray-600 dark:text-gray-400 mb-2">Fetch Ike's favorite books.</p>
+                        <h3 className="text-lg font-bold mb-2">Get Lofi</h3>
+                        <p className="text-gray-600 dark:text-gray-400 mb-2">Fetch Ike's Lofi Channel.</p>
                         <div className="flex items-center mb-2">
                             <span
                                 className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium mr-2">GET</span>
-                            <span className="text-gray-600 dark:text-gray-400">/books</span>
+                            <span className="text-gray-600 dark:text-gray-400">/lofi</span>
                         </div>
                         <div className="flex items-center">
                             <span
