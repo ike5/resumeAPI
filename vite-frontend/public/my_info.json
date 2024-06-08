@@ -5,39 +5,54 @@
   "phone": "(415) 760-7438",
   "location": "Bay Area",
   "summary": "Experienced IT professional with a background in software engineering, technical support, and project management. Proven leadership capabilities in managing teams and driving system development initiatives. Aiming to leverage technical skills to transition into a junior software developer role, taking the next step towards a professional coding career.",
-  "technicalSkills": {
-    "backend": {
-      "Python": 90,
-      "JavaScript": 85,
-      "TypeScript": 80,
-      "Java": 75,
-      "SQL": 85,
-      "Vue": 80,
-      "React": 85,
-      "Node.js": 90
+  "technicalSkills": [
+    {
+      "Frontend": [
+        {
+          "React": 85
+        },
+        {
+          "Vue": 70
+        }
+      ]
     },
-    "frontend": {
-      "React": 85,
-      "Vue": 80,
-      "HTML": 90,
-      "CSS": 85,
-      "REST APIs": 80
+    {
+      "Backend": [
+        {
+          "Python": 90
+        },
+        {
+          "Java": 75
+        },
+        {
+          "SQL": 85
+        }
+      ]
     },
-    "toolsFrameworks": {
-      "Git": 90,
-      "Docker": 85,
-      "Pytest": 80,
-      "Django": 85,
-      "Vite": 80,
-      "Next.js": 85,
-      "Tailwindcss": 80
+    {
+      "Tools": [
+        {
+          "Git": 90
+        },
+        {
+          "Docker": 85
+        },
+        {
+          "FastAPI": 85
+        }
+      ]
     },
-    "cloudDevOps": {
-      "AWS (Lightsail, EC2, Route53)": 85,
-      "Google Cloud": 80,
-      "Linux (Ubuntu, Fedora)": 85
+    {
+      "Cloud": [
+        {
+          "AWS": 85
+        },
+        {
+          "Google": 80
+        }
+      ]
     }
-  },
+  ],
   "experience": [
     {
       "title": "IT Manager",
@@ -159,5 +174,144 @@
   "languages": [
     "Spanish",
     "Portuguese"
+  ],
+  "books": [
+    {
+      "title": "The Three-Body Problem",
+      "author": "Liu Cixin"
+    },
+    {
+      "title": "The Dark Forest",
+      "author": "Liu Cixin"
+    },
+    {
+      "title": "Death's End",
+      "author": "Liu Cixin"
+    },
+    {
+      "title": "Northern Lights (The Golden Compass)",
+      "author": "Philip Pullman"
+    },
+    {
+      "title": "Rendezvous with Rama",
+      "author": "Arthur C. Clarke"
+    },
+    {
+      "title": "Harry Potter and the Sorcerer's Stone",
+      "author": "J.K. Rowling"
+    },
+    {
+      "title": "Ender's Game",
+      "author": "Orson Scott Card"
+    },
+    {
+      "title": "Decadence",
+      "author": "David Weir"
+    },
+    {
+      "title": "The Martian",
+      "author": "Andy Weir"
+    },
+    {
+      "title": "Will Grayson, Will Grayson",
+      "author": "John Green, David Levithan"
+    },
+    {
+      "title": "Blindsight",
+      "author": "Peter Watts"
+    },
+    {
+      "title": "Jewels",
+      "author": "Victoria Finlay"
+    },
+    {
+      "title": "Talking to Strangers",
+      "author": "Malcolm Gladwell"
+    },
+    {
+      "title": "Rubicon",
+      "author": "J.S. Dewes"
+    },
+    {
+      "title": "Sapiens",
+      "author": "Yuval Noah Harari"
+    },
+    {
+      "title": "The Power of Habit",
+      "author": "Charles Duhigg"
+    },
+    {
+      "title": "The Picture of Dorian Gray",
+      "author": "Oscar Wilde"
+    },
+    {
+      "title": "Recursion",
+      "author": "Blake Crouch"
+    },
+    {
+      "title": "Dare to Lead",
+      "author": "Brené Brown"
+    },
+    {
+      "title": "Sophie's World",
+      "author": "Jostein Gaarder"
+    },
+    {
+      "title": "Golden Son",
+      "author": "Pierce Brown"
+    },
+    {
+      "title": "Red Rising",
+      "author": "Pierce Brown"
+    },
+    {
+      "title": "Grit",
+      "author": "Angela Duckworth"
+    },
+    {
+      "title": "Effortless",
+      "author": "Greg McKeown"
+    },
+    {
+      "title": "The Memory Police",
+      "author": "Yoko Ogawa"
+    },
+    {
+      "title": "The Redemption of Time",
+      "author": "Baoshu"
+    },
+    {
+      "title": "Supernova Era",
+      "author": "Cixin Liu"
+    },
+    {
+      "title": "Atomic Habits",
+      "author": "James Clear"
+    },
+    {
+      "title": "Essentialism",
+      "author": "Greg McKeown"
+    },
+    {
+      "title": "Armada",
+      "author": "Ernest Cline"
+    },
+    {
+      "title": "Ready Player One",
+      "author": "Ernest Cline"
+    },
+    {
+      "title": "Digital Minimalism",
+      "author": "Cal Newport"
+    },
+    {
+      "title": "Klara and the Sun",
+      "author": "Kazuo Ishiguro"
+    }
+  ],
+  "os": [
+    "Mac",
+    "Windows",
+    "Linux"
   ]
 }

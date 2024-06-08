@@ -4,30 +4,12 @@
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
 
-/** Add fonts into your Next.js project:
-
- import { Cormorant_Garamond } from 'next/font/google'
- import { Chivo } from 'next/font/google'
-
- cormorant_garamond({
- subsets: ['latin'],
- display: 'swap',
- })
-
- chivo({
- subsets: ['latin'],
- display: 'swap',
- })
-
- To read more about using these font, please visit the Next.js documentation:
- - App Directory: https://nextjs.org/docs/app/building-your-application/optimizing/fonts
- - Pages Directory: https://nextjs.org/docs/pages/building-your-application/optimizing/fonts
- **/
 import {Button} from "@/components/ui/button"
 import {Label} from "@/components/ui/label"
 import {Input} from "@/components/ui/input"
 import {Textarea} from "@/components/ui/textarea"
 import {useEffect, useState} from "react";
+import {Endpoints} from "@/components/endpoints.tsx";
 
 export function MainPage() {
     const [info, setInfo] = useState(null)
@@ -84,16 +66,16 @@ export function MainPage() {
                         <h2 className="text-3xl font-bold">Experience</h2>
                         <div className="space-y-8">
                             {info.experience.map((exp: string, index: number) => (
-                                <div key={index}>
-                                    <h3 className="text-xl font-bold">{exp.title}</h3>
-                                    <p className="text-gray-600 dark:text-gray-400">{exp.company} | {exp.startDate} - {exp.endDate}</p>
-                                    <ul className="list-disc pl-6 text-gray-600 dark:text-gray-400 space-y-2">
-                                        {exp.show ?
-                                            exp.responsibilities.map((responsibility: string, i: number) => (
+                                exp.show ? (
+                                    <div key={index}>
+                                        <h3 className="text-xl font-bold">{exp.title}</h3>
+                                        <p className="text-gray-600 dark:text-gray-400">{exp.company} | {exp.startDate} - {exp.endDate}</p>
+                                        <ul className="list-disc pl-6 text-gray-600 dark:text-gray-400 space-y-2">
+                                            {exp.responsibilities.map((responsibility: string, i: number) => (
                                                 <li key={i}>{responsibility}</li>
-                                            )) : null}
-                                    </ul>
-                                </div>
+                                            ))}
+                                        </ul>
+                                    </div>) : null
                             ))}
                         </div>
                     </div>
@@ -116,122 +98,32 @@ export function MainPage() {
                     <div className="container mx-auto max-w-4xl space-y-6">
                         <h2 className="text-3xl font-bold">Skills</h2>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                            <div className="bg-white dark:bg-gray-900 rounded-lg p-4 shadow">
-                                <h3 className="text-lg font-bold">Frontend</h3>
-                                <div className="mt-4 space-y-2">
-                                    <div className="flex items-center justify-between">
-                                        <span>React</span>
-                                        <div className="w-2/3 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                            <div
-                                                className="bg-blue-500 h-2 rounded-full"
-                                                style={{
-                                                    width: "90%",
-                                                }}
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="flex items-center justify-between">
-                                        <span>JavaScript</span>
-                                        <div className="w-2/3 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                            <div
-                                                className="bg-blue-500 h-2 rounded-full"
-                                                style={{
-                                                    width: "85%",
-                                                }}
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="flex items-center justify-between">
-                                        <span>HTML/CSS</span>
-                                        <div className="w-2/3 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                            <div
-                                                className="bg-blue-500 h-2 rounded-full"
-                                                style={{
-                                                    width: "95%",
-                                                }}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
-
-                            <div className="bg-white dark:bg-gray-900 rounded-lg p-4 shadow">
-                                <h3 className="text-lg font-bold">Backend</h3>
-                                <div className="mt-4 space-y-2">
-                                    <div className="flex items-center justify-between">
-                                        <span>Node.js</span>
-                                        <div className="w-2/3 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                            <div
-                                                className="bg-blue-500 h-2 rounded-full"
-                                                style={{
-                                                    width: "80%",
-                                                }}
-                                            />
+                            {info.technicalSkills.map((category, index) => (
+                                <div key={index} className="bg-white dark:bg-gray-900 rounded-lg p-4 shadow">
+                                    {Object.entries(category).map(([skillCategory, skills]) => (
+                                        <div key={skillCategory}>
+                                            <h3 className="text-lg font-bold">{skillCategory}</h3>
+                                            <div className="mt-4 space-y-2">
+                                                {skills.map((skill, i) => (
+                                                    <div key={i} className="flex items-center justify-between">
+                                                        <span>{Object.keys(skill)[0]}</span>
+                                                        <div
+                                                            className="w-2/3 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                                            <div
+                                                                className="bg-blue-500 h-2 rounded-full"
+                                                                style={{
+                                                                    width: `${Object.values(skill)[0]}%`,
+                                                                }}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="flex items-center justify-between">
-                                        <span>Express</span>
-                                        <div className="w-2/3 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                            <div
-                                                className="bg-blue-500 h-2 rounded-full"
-                                                style={{
-                                                    width: "75%",
-                                                }}
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="flex items-center justify-between">
-                                        <span>MongoDB</span>
-                                        <div className="w-2/3 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                            <div
-                                                className="bg-blue-500 h-2 rounded-full"
-                                                style={{
-                                                    width: "85%",
-                                                }}
-                                            />
-                                        </div>
-                                    </div>
+                                    ))}
                                 </div>
-                            </div>
-                            <div className="bg-white dark:bg-gray-900 rounded-lg p-4 shadow">
-                                <h3 className="text-lg font-bold">Tools</h3>
-                                <div className="mt-4 space-y-2">
-                                    <div className="flex items-center justify-between">
-                                        <span>Git</span>
-                                        <div className="w-2/3 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                            <div
-                                                className="bg-blue-500 h-2 rounded-full"
-                                                style={{
-                                                    width: "90%",
-                                                }}
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="flex items-center justify-between">
-                                        <span>VS Code</span>
-                                        <div className="w-2/3 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                            <div
-                                                className="bg-blue-500 h-2 rounded-full"
-                                                style={{
-                                                    width: "95%",
-                                                }}
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="flex items-center justify-between">
-                                        <span>Figma</span>
-                                        <div className="w-2/3 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                            <div
-                                                className="bg-blue-500 h-2 rounded-full"
-                                                style={{
-                                                    width: "80%",
-                                                }}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
                 </section>
@@ -257,75 +149,16 @@ export function MainPage() {
                         </form>
                     </div>
                 </section>
+
                 <section className="bg-gray-100 dark:bg-gray-800 py-12 px-6 md:px-12">
                     <div className="container mx-auto max-w-4xl space-y-6">
-                        <h2 className="text-3xl font-bold">Code Snippet</h2>
-                        <div className="bg-white dark:bg-gray-900 rounded-lg p-4 shadow">
-              <pre className="text-sm font-mono">
-                <code>curl -X GET https://api.example.com/resume \ -H 'Authorization: Bearer '</code>
-              </pre>
-                            <div className="mt-4 bg-gray-100 dark:bg-gray-800 rounded-lg p-4">
-                <pre className="text-sm font-mono text-gray-600 dark:text-gray-400">
-                  <code>
-                    {`
-                                      {
-                                        "name": "Ike Maldonado",
-                                        "email": "john@example.com",
-                                        "experience": [
-                                          {
-                                            "title": "Software Engineer",
-                                            "company": "Acme Inc.",
-                                            "startDate": "2019-01-01",
-                                            "endDate": "Present"
-                                          },
-                                          {
-                                            "title": "Web Developer",
-                                            "company": "XYZ Corp.",
-                                            "startDate": "2016-06-01",
-                                            "endDate": "2019-12-31"
-                                          }
-                                        ],
-                                        "education": [
-                                          {
-                                            "degree": "Bachelor of Science in Computer Science",
-                                            "institution": "University of Example",
-                                            "graduationYear": 2016
-                                          },
-                                          {
-                                            "degree": "High School Diploma",
-                                            "institution": "Example High School",
-                                            "graduationYear": 2012
-                                          }
-                                        ],
-                                        "skills": {
-                                          "frontend": {
-                                            "react": 90,
-                                            "javascript": 85,
-                                            "htmlcss": 95
-                                          },
-                                          "backend": {
-                                            "nodejs": 80,
-                                            "express": 75,
-                                            "mongodb": 85
-                                          },
-                                          "tools": {
-                                            "git": 90,
-                                            "vscode": 95,
-                                            "figma": 80
-                                          }
-                                        }
-                                      }
-                                    `}
-                  </code>
-                </pre>
-                            </div>
-                        </div>
+                        <Endpoints/>
                     </div>
                 </section>
             </main>
             <footer className="bg-gray-900 text-white py-6 px-6 md:px-12">
                 <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-                    <div className="text-sm">© 2023 John Doe. All rights reserved.</div>
+                    <div className="text-sm">© 2024 {info.name}. All rights reserved.</div>
                     <div className="flex space-x-4 mt-4 md:mt-0">
                         <p className="hover:text-gray-400">
                             <GithubIcon/>
